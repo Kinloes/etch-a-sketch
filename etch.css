@@ -1,0 +1,26 @@
+body{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+#sketchContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    margin-top: 120px;
+    height: 640px;
+    width: 640px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: gray;
+}
+#sketchContainer div{
+    height: 40px;
+    width: 40px;
+    outline: 1px solid gray;
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

@@ -1,5 +1,6 @@
-let etch = document.getElementById("sketchcontainer")
-etch.addEventListener("click", placeSquare)
-function placeSquare{
-    textContent = "TEST"
+const etch = document.getElementById("sketchContainer");
+const div = document.getElementById("1")
+div.addEventListener("click", placeSquare);
+function placeSquare(){
+    div.style.backgroundColor = "blue";
 }

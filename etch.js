@@ -3,10 +3,10 @@ eraseButton = false;
 rainbowButton = false;
 //Random number generator for rainbow button
 function randomnum(min, max){
-    return Math.floor(Math.random() * max) + min;
+    return Math.floor(Math.random() * 255) + 1;
 }
-let rng = randomnum(1, 255);
-console.log (rng);
+const rng = randomnum();
+console.log (rng)
 
 //Allows the "click and drag" drawing functionality
 document.addEventListener("mousedown", function(){
@@ -75,7 +75,7 @@ for (i = 1; i <= 256; i++){
             makeGrid.style.backgroundColor = "white"
         }
         if (rainbowButton === true){
-            makeGrid.style.backgroundColor = "blue"
+            makeGrid.style.backgroundColor = "rgb(" + randomnum() + "," + randomnum() + "," + randomnum() + ")";
         }
     }
 //This adds a "drag" functionality that continually adds colored squares as the user holds the button
@@ -89,7 +89,7 @@ for (i = 1; i <= 256; i++){
                 makeGrid.style.backgroundColor = "white"
                 }
             if (rainbowButton === true){
-                makeGrid.style.backgroundColor = "rgb(" + rng + "," + rng + "," + rng + ")";
+                makeGrid.style.backgroundColor = "rgb(" + randomnum() + "," + randomnum() + "," + randomnum() + ")";
                 }
         }
     }

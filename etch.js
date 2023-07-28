@@ -1,7 +1,14 @@
 drawButton = false;
 eraseButton = false;
+rainbowButton = false;
+//Random number generator for rainbow button
+function randomnum(min, max){
+    return Math.floor(Math.random() * max) + min;
+}
+let rng = randomnum(1, 255);
+console.log (rng);
 
-//This allows the "click and drag" drawing functionality
+//Allows the "click and drag" drawing functionality
 document.addEventListener("mousedown", function(){
     trigger = true
 })
@@ -11,21 +18,54 @@ document.addEventListener("mouseup", function(){
 
 //eventlisteners for buttons
 document.getElementById("draw").onclick = function(){
-    draw.style.boxShadow = "inset 0px 0px 4px";
     drawButton = true;
+    if (drawButton = true){
+    draw.style.boxShadow = "inset 0px 0px 4px";
+    drawButtonTru();
+    }
 }
 document.getElementById("erase").onclick = function(){
-    erase.style.boxShadow = "inset 0px 0px 4px";
     eraseButton = true;
+    if (eraseButton = true){
+    erase.style.boxShadow = "inset 0px 0px 4px";
+    eraseButtonTru();
+    }
 }
 
+document.getElementById("rainbow").onclick = function(){
+    rainbowButton = true;
+    if (rainbowButton = true){
+        rainbow.style.boxShadow = "inset 0px 0px 4px";
+        rainbowButtonTru();
+    }
+}
+
+//Removes the "button press" CSS and functionality for non-active buttons
+function drawButtonTru(){
+    erase.style.boxShadow = "inset 0px 0px 0px";
+    eraseButton = false;
+    rainbow.style.boxShadow = "inset 0px 0px 0px";
+    rainbowButton = false;
+}
+function eraseButtonTru(){
+    draw.style.boxShadow = "inset 0px 0px 0px";
+    drawButton = false;
+    rainbow.style.boxShadow = "inset 0px 0px 0px";
+    rainbowButton = false;
+}
+function rainbowButtonTru(){
+    erase.style.boxShadow = "inset 0px 0px 0px";
+    eraseButton = false;
+    draw.style.boxShadow = "inset 0px 0px 0px";
+    drawButton = false;
+}
 //This creates the grid
 for (i = 1; i <= 256; i++){
     let makeGrid = document.createElement("div");
     makeGrid.id = "makeGrid" + i;
     sketchContainer.appendChild(makeGrid);
 
-//This adds the click element
+//This adds a pixel of the selected button wherever the user clicks
     makeGrid.addEventListener("mousedown", placeSquare)
     function placeSquare(){
         if (drawButton === true){
@@ -34,7 +74,11 @@ for (i = 1; i <= 256; i++){
         if (eraseButton === true){
             makeGrid.style.backgroundColor = "white"
         }
+        if (rainbowButton === true){
+            makeGrid.style.backgroundColor = "blue"
+        }
     }
+//This adds a "drag" functionality that continually adds colored squares as the user holds the button
     makeGrid.addEventListener("mouseover", placeSquare2)
     function placeSquare2(){
         if (trigger === true){
@@ -43,7 +87,10 @@ for (i = 1; i <= 256; i++){
                 }
             if (eraseButton === true){
                 makeGrid.style.backgroundColor = "white"
-            }
+                }
+            if (rainbowButton === true){
+                makeGrid.style.backgroundColor = "rgb(" + rng + "," + rng + "," + rng + ")";
+                }
         }
     }
 }

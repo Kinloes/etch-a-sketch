@@ -1,7 +1,18 @@
+@keyframes rainbow {
+0% {background-color: red;}
+15% {background-color: orange;}
+30% {background-color: yellow;}
+45% {background-color: green;}
+60% {background-color: blue;}
+75% {background-color: indigo;}
+90% {background-color: violet;}
+100% {background-color: red;}
+}
 body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color:gainsboro;
 }
 #buttonContainer{
     display: flex;
@@ -23,6 +34,7 @@ body button{
     border-width: 2px;
     border-style: solid;
     border-color: gray;
+    background-color: white;
 }
 #sketchContainer div{
     height: 40px;
@@ -33,6 +45,15 @@ body button{
     flex-direction: column;
     flex-wrap: wrap;
 }
+#draw{
+    background-color:azure
+}
 #erase{
     background-color: pink;
+}
+#rainbow{
+    animation-name: rainbow;
+    background-color: red;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
 }

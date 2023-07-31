@@ -57,3 +57,12 @@ body button{
     animation-duration: 20s;
     animation-iteration-count: infinite;
 }
+#colorText{
+    text-align: center;
+}
+#colorPicker{
+    align-self: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 8px;
+}
